@@ -8,6 +8,7 @@ This is an optimized version of the porfolio project
 You need gulp installed
 
 1. Check out the repository
+  
   ``` bash
   $> cd /path/to/your-project-folder
   $> gulp
