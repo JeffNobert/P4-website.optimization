@@ -19,3 +19,4 @@ You need gulp installed
 
 1. At line 447, I simplified the changePizzaSizes function so we do not have any calulation to do.
 2. At line 463 to 467, I saved the nodes in a varialble that we can now iterate over so we do not have to make dom request.
+3. At line 482, I remove the var pizzasDiv from within the loop.
