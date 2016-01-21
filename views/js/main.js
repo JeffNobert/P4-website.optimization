@@ -460,11 +460,11 @@ var resizePizzas = function(size) {
         console.log("bug in sizeSwitcher");
     }
     // Calculate dx and new width outside of the loop
-    var pizzas = document.getElementsByClassName(".randomPizzaContainer");
+    var pizzas = document.getElementsByClassName("randomPizzaContainer");
     
-    for (var i = 0; i < pizzas.length; i++) {
-     pizzas[i].style.width = newWidth + "%";
-    }
+    pizzas.forEach(function(pizza) {
+      pizza.style.width = newWidth + "%";
+    });
   }
 
   changePizzaSizes(size);
@@ -512,11 +512,11 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('.mover');
+  var items = document.getElementsByClassName('mover');
 
   // Got to size before batch changing the style.
   var phase = []; 
-
+  var scrollTop = document.body.scrollTop;
   for (var i = 0; i < 5; i++) {
     phase.push(Math.sin(scrollTop / 1250 + i) * 100);
   }
@@ -544,9 +544,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 
   // 100px for the height of the image.
-  var nbPizzas = window.innerHeight / 100; 
+  var nbPizzas = window.innerHeight / 5; 
+  var elem;
   for (var i = 0; i < nbPizzas; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
