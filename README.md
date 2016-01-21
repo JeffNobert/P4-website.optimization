@@ -13,7 +13,7 @@ You need gulp installed
 1. Check out the repository
   ``` bash
   $> cd /path/to/your-project-folder
-  $> nmp install
+  $> npm install
   $> gulp
   ```
 2. Now use the files located in the dist folder located in your project folder.

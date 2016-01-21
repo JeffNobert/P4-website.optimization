@@ -460,7 +460,7 @@ var resizePizzas = function(size) {
         console.log("bug in sizeSwitcher");
     }
     // Calculate dx and new width outside of the loop
-    var pizzas = document.querySelectorAll(".randomPizzaContainer");
+    var pizzas = document.getElementsByClassName(".randomPizzaContainer");
     
     for (var i = 0; i < pizzas.length; i++) {
      pizzas[i].style.width = newWidth + "%";
@@ -512,13 +512,17 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('.mover');
 
   // Got to size before batch changing the style.
-  var size = document.body.scrollTop / 1250;
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(size + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  var phase = []; 
+
+  for (var i = 0; i < 5; i++) {
+    phase.push(Math.sin(scrollTop / 1250 + i) * 100);
+  }
+
+  for (var i = 0, max = items.length; i < max; i++) {
+    items[i].style.left = items[i].basicLeft + phase[i%5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -538,7 +542,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+
+  // 100px for the height of the image.
+  var nbPizzas = window.innerHeight / 100; 
+  for (var i = 0; i < nbPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
