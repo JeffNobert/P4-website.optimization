@@ -7,6 +7,9 @@ This is an optimized version of the porfolio project
 
 You need gulp installed
 
+
+####Errors occors for some reason with the script that I don't have on my end.  So I have included the dist folder.
+
 1. Check out the repository
   ``` bash
   $> cd /path/to/your-project-folder
