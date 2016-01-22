@@ -521,8 +521,8 @@ function updatePositions() {
     phase.push(Math.sin(scrollTop / 1250 + i) * 100);
   }
 
-  for (var i = 0, max = items.length; i < max; i++) {
-    items[i].style.left = items[i].basicLeft + phase[i%5] + 'px';
+  for (var j= 0, max = items.length; j < max; j++) {
+    items[j].style.left = items[j].basicLeft + phase[j%5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -543,8 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 
-  // 100px for the height of the image.
-  var nbPizzas = window.innerHeight / 5; 
+  var nbPizzas = window.innerHeight / s * cols;
   var elem;
   for (var i = 0; i < nbPizzas; i++) {
     elem = document.createElement('img');
