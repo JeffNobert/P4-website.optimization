@@ -462,9 +462,9 @@ var resizePizzas = function(size) {
     // Calculate dx and new width outside of the loop
     var pizzas = document.getElementsByClassName("randomPizzaContainer");
     
-    pizzas.forEach(function(pizza) {
-      pizza.style.width = newWidth + "%";
-    });
+    for (i = 0; i < pizzas.length; i++) { 
+      pizzas[i].style.width = newWidth + "%";
+    }
   }
 
   changePizzaSizes(size);
